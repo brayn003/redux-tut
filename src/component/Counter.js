@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 const Counter = (props) => {
   const {count} = props;
@@ -10,5 +11,16 @@ const Counter = (props) => {
     </div>
    );
 }
+
+// get type connection
+const mapStateToProps = (state) => {
+  return {
+    count: state.countReducer.count
+  }
+}
+
+// set type connection
  
-export default Counter;
+// connect(mapStateToProps, mapDispatchToProps)(Component)
+export default connect(mapStateToProps, null)(Counter);
+// export default Counter;
